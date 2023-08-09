@@ -15,7 +15,7 @@ import { AgendamentoType } from "../../@types/Agendamento";
 export const Agendamentos = () => {
   const [search, setSearch] = useState<string>("");
   const [agendamentos, setAgendamentos] = useState(ListOfHorary);
-  const [agenda, setAgenda] = useState<AgendamentoType>();
+  const [agenda, setAgenda] = useState<AgendamentoType | null>(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleOpenModal = (item: AgendamentoType) => {

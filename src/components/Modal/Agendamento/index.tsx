@@ -21,14 +21,18 @@ import { AgendamentoSchema } from "../../../schemas/Agendamento";
 import { AgendamentoType } from "../../../@types/Agendamento";
 import { Doctors } from "../../../mocks/Doctor";
 import { PaymentMethod } from "../../../mocks/PaymentMethod";
+import { z } from "zod";
+import { SubmitHandler } from "react-hook-form";
 
 interface ModalAgendamentoProps {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
   onConfirm: (value: AgendamentoType) => void;
-  data: AgendamentoType;
+  data: AgendamentoType | null;
 }
+
+export type AgendamentoData = z.infer<typeof AgendamentoSchema>;
 
 export const ModalAgendamento = (props: ModalAgendamentoProps) => {
   const { isOpen, onClose, onConfirm } = props;
@@ -36,23 +40,24 @@ export const ModalAgendamento = (props: ModalAgendamentoProps) => {
     resolver: zodResolver(AgendamentoSchema),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit: SubmitHandler<AgendamentoData> = (data) => {
     const { value, payment, doctor, ...cliente } = data;
+    if (props.data) {
+      const values: AgendamentoType = {
+        id: props.data.id,
+        horary: props.data.horary,
+        client: cliente,
+        available: false,
+        doctor: doctor,
+        payment: payment,
+        value: value,
+      };
 
-    const values: AgendamentoType = {
-      id: props.data.id,
-      horary: props.data.horary,
-      client: cliente,
-      available: false,
-      doctor: doctor,
-      payment: payment,
-      value: value,
-    };
-
-    console.log({ values });
-    onConfirm(values);
-    onClose();
-    reset();
+      console.log({ values });
+      onConfirm(values);
+      onClose();
+      reset();
+    }
   };
 
   return (
@@ -173,7 +178,7 @@ export const ModalAgendamento = (props: ModalAgendamentoProps) => {
           </form>
         </ModalBody>
         <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={handleSubmit(onSubmit)}>
+          <Button colorScheme="blue" mr={3} type="submit">
             Agendar
           </Button>
           <Button onClick={onClose}>Cancelar</Button>
