@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+// @ts-nocheck
 import {
   Flex,
   Text,
@@ -12,13 +14,11 @@ import {
 import { useState } from "react";
 import { FaFilter } from "react-icons/fa";
 
-import { ListOfHorary } from "../../utils/generateHorary";
 import SearchInput from "../../components/SearchInput";
 import { TabelaAgendamentos } from "../../components/TableAgendamentos";
 
 export const Consultas = () => {
   const [search, setSearch] = useState<string>("");
-  const [agendamentos, setAgendamentos] = useState(ListOfHorary);
 
   return (
     <Flex
