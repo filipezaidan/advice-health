@@ -36,5 +36,9 @@ export const AgendaItem = ({ name, doctor, hours }: AgendaItemProps) => {
 };
 
 export const AgendaContent = ({ children }: AgendaContentProps) => {
-  return <Stack>{children}</Stack>;
+  return (
+    <Stack minH={"xs"} overflowY={"auto"}>
+      {children}
+    </Stack>
+  );
 };
