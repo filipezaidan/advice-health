@@ -15,14 +15,12 @@ export const DoctorItem = ({ name, position }: DoctorItemProps) => {
     <Box w={"100%"} bg="gray.100" p={2} rounded={"md"}>
       <HStack justifyContent={"space-between"}>
         <Flex gap={2}>
-          <Avatar></Avatar>
+          <Avatar src="https://img.imageboss.me/revista-cdn/cdn/41938/7d8429c45731acf5a27316ce946ece4f005b8947.jpg?1666045869"></Avatar>
           <Stack spacing={0}>
             <Text fontSize={"md"} fontWeight={"bold"}>
               {name}
             </Text>
-            <Text fontSize={"md"} fontWeight={"bold"}>
-              {position}
-            </Text>
+            <Text fontSize={"md"}>{position}</Text>
           </Stack>
         </Flex>
       </HStack>

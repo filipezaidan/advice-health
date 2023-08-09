@@ -12,7 +12,7 @@ interface AgendaItemProps {
 
 export const AgendaItem = ({ name, doctor, hours }: AgendaItemProps) => {
   return (
-    <Box w={"100%"} bg="gray.100" p={2} rounded={"md"}>
+    <Box w={"100%"} bg="#0093A0" p={2} rounded={"md"} color={"white"}>
       <HStack justifyContent={"space-between"}>
         <Flex gap={2}>
           <Avatar></Avatar>

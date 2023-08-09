@@ -1,11 +1,4 @@
-import {
-  Box,
-  Flex,
-  Stat,
-  StatLabel,
-  StatNumber,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Flex, Stat, StatLabel, StatNumber } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 interface StatsCardProps {
@@ -17,8 +10,17 @@ interface StatsCardProps {
 export const StatsCard = (props: StatsCardProps) => {
   const { title, stat, icon } = props;
   return (
-    <Stat px={{ base: 8, md: 8 }} w={"64"} py={6} shadow={"md"} rounded={"lg"}>
-      <Flex justifyContent={"space-between"}>
+    <Stat
+      px={{ base: 8, md: 8 }}
+      minW={"64"}
+      w="auto"
+      py={6}
+      bg="#0093A0 "
+      shadow={"md"}
+      rounded={"lg"}
+      color="white"
+    >
+      <Flex justifyContent={"space-between"} gap={2}>
         <Box pl={{ base: 2, md: 4 }}>
           <StatLabel fontWeight={"medium"} isTruncated>
             {title}
@@ -27,11 +29,7 @@ export const StatsCard = (props: StatsCardProps) => {
             {stat}
           </StatNumber>
         </Box>
-        <Box
-          my={"auto"}
-          color={useColorModeValue("gray.800", "gray.200")}
-          alignContent={"center"}
-        >
+        <Box my={"auto"} color={"white"} alignContent={"center"}>
           {icon}
         </Box>
       </Flex>

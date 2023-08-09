@@ -19,7 +19,7 @@ export const Sidebar = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
       transition="3s ease"
-      bg={useColorModeValue("white ", "gray.900")}
+      bg={"#0093A0"}
       borderRight="1px"
       borderRightColor={useColorModeValue("gray.200", "gray.700")}
       w={{ base: "full", md: 60 }}
@@ -33,8 +33,10 @@ export const Sidebar = ({ onClose, ...rest }: SidebarProps) => {
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
-      {MenuItems.map((link) => (
-        <NavItem {...link}>{link.name}</NavItem>
+      {MenuItems.map((link, key) => (
+        <NavItem {...link} key={key}>
+          {link.name}
+        </NavItem>
       ))}
     </Box>
   );

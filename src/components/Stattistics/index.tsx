@@ -1,7 +1,7 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import { BsPerson } from "react-icons/bs";
-import { FiServer } from "react-icons/fi";
-import { GoLocation } from "react-icons/go";
+import { GiArchiveResearch } from "react-icons/gi";
+import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { StatsCard } from "../../components/StatsCard";
 
 export default function Statistics() {
@@ -16,12 +16,12 @@ export default function Statistics() {
         <StatsCard
           title={"Consultas"}
           stat={"1,000"}
-          icon={<FiServer size={"3em"} />}
+          icon={<GiArchiveResearch size={"3em"} />}
         />
         <StatsCard
           title={"Faturamento"}
-          stat={"7"}
-          icon={<GoLocation size={"3em"} />}
+          stat={"R$ 8.560,90"}
+          icon={<FaRegMoneyBillAlt size={"3em"} />}
         />
       </SimpleGrid>
     </Box>

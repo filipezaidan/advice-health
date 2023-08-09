@@ -21,6 +21,7 @@ export const NavItem = ({
       to={href}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
+      color={"white"}
     >
       <Flex
         align="center"

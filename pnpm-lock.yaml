@@ -4,11 +4,13 @@ specifiers:
   '@chakra-ui/react': ^2.8.0
   '@emotion/react': ^11.11.1
   '@emotion/styled': ^11.11.0
+  '@hookform/resolvers': ^3.2.0
   '@types/react': ^18.2.15
   '@types/react-dom': ^18.2.7
   '@typescript-eslint/eslint-plugin': ^6.0.0
   '@typescript-eslint/parser': ^6.0.0
   '@vitejs/plugin-react': ^4.0.3
+  date-fns: ^2.30.0
   eslint: ^8.45.0
   eslint-plugin-react-hooks: ^4.6.0
   eslint-plugin-react-refresh: ^0.4.3
@@ -18,25 +20,33 @@ specifiers:
   react: ^18.2.0
   react-calendar: ^4.6.0
   react-dom: ^18.2.0
+  react-hook-form: ^7.45.4
   react-icons: ^4.10.1
   react-router-dom: ^6.14.2
+  react-uuid: ^2.0.0
   sort-by: ^1.2.0
   typescript: ^5.0.2
   vite: ^4.4.5
+  zod: ^3.21.4
 
 dependencies:
   '@chakra-ui/react': 2.8.0_a7z3vzzthsmtcwjjhh5wqi7q74
   '@emotion/react': 11.11.1_6kgymidexis2l23kiss4by6rqm
   '@emotion/styled': 11.11.0_cqqqejw4b2xlbacijs3qoagmym
+  '@hookform/resolvers': 3.2.0_react-hook-form@7.45.4
+  date-fns: 2.30.0
   framer-motion: 10.15.1_biqbaboplfbrettd7655fr4n2y
   localforage: 1.10.0
   match-sorter: 6.3.1
   react: 18.2.0
   react-calendar: 4.6.0_3op2lnyzlva6z5yh6fcmfv7uy4
   react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.45.4_react@18.2.0
   react-icons: 4.10.1_react@18.2.0
   react-router-dom: 6.14.2_biqbaboplfbrettd7655fr4n2y
+  react-uuid: 2.0.0
   sort-by: 1.2.0
+  zod: 3.21.4
 
 devDependencies:
   '@types/react': 18.2.19
@@ -1733,6 +1743,14 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
+  /@hookform/resolvers/3.2.0_react-hook-form@7.45.4:
+    resolution: {integrity: sha512-skXQHhLxq0Sz2xDwCyv5dygBCtXJe1GmWwxDzfdtl0X6agD6qcyTG8HrZWkjJoy8AkiLARqYvSYJ8z7+Nwmi7w==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.45.4_react@18.2.0
+    dev: false
+
   /@humanwhocodes/config-array/0.11.10:
     resolution: {integrity: sha512-KVVjQmNUepDVGXNuoRRdmmEjruj0KfiGSbS8LVc12LMsWDQzRXJ0qdhN8L8uUigKpfEHRhlaQFY0ib1tnUbNeQ==}
     engines: {node: '>=10.10.0'}
@@ -2217,6 +2235,13 @@ packages:
 
   /csstype/3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
+
+  /date-fns/2.30.0:
+    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
+    engines: {node: '>=0.11'}
+    dependencies:
+      '@babel/runtime': 7.22.10
+    dev: false
 
   /debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
@@ -3022,6 +3047,15 @@ packages:
       use-sidecar: 1.1.2_6kgymidexis2l23kiss4by6rqm
     dev: false
 
+  /react-hook-form/7.45.4_react@18.2.0:
+    resolution: {integrity: sha512-HGDV1JOOBPZj10LB3+OZgfDBTn+IeEsNOKiq/cxbQAIbKaiJUe/KV8DBUzsx0Gx/7IG/orWqRRm736JwOfUSWQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-icons/4.10.1_react@18.2.0:
     resolution: {integrity: sha512-/ngzDP/77tlCfqthiiGNZeYFACw85fUjZtLbedmJ5DTlNDIwETxhwBzdOJ21zj4iJdvc0J3y7yOsX3PpxAJzrw==}
     peerDependencies:
@@ -3112,6 +3146,11 @@ packages:
       invariant: 2.2.4
       react: 18.2.0
       tslib: 2.6.1
+    dev: false
+
+  /react-uuid/2.0.0:
+    resolution: {integrity: sha512-FNUH/8WR/FEtx0Bu6gmt1eONfc413hhvrEXFWUSFGvznUhI4dYoVZA09p7JHoTpnM4WC2D/bG2YSxGKXF4oVLg==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
     dev: false
 
   /react/18.2.0:
@@ -3428,3 +3467,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod/3.21.4:
+    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: false

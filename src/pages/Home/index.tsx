@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Flex, Box, Text, Grid, Stack } from "@chakra-ui/react";
+import { Flex, Text, Stack } from "@chakra-ui/react";
 import SearchInput from "../../components/SearchInput";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Statistics from "../../components/Stattistics";
 import Calendar from "react-calendar";
 
@@ -29,12 +29,6 @@ export const Home = () => {
 
         <Statistics />
 
-        <Grid>
-          <Box w={"full"} minH={4}></Box>
-          <Box w={"full"} minH={4}></Box>
-          <Box w={"full"} minH={4}></Box>
-        </Grid>
-
         <StickyNotes></StickyNotes>
       </Stack>
       <Stack>
@@ -45,9 +39,6 @@ export const Home = () => {
             <AgendaItem {...consulta} key={key} />
           ))}
         </AgendaContent>
-        {/* CALENDARIO */}
-
-        {/* CLIENTES */}
       </Stack>
     </Flex>
   );
