@@ -38,17 +38,18 @@ export const ModalAgendamento = (props: ModalAgendamentoProps) => {
 
   const onSubmit = (data) => {
     const { value, payment, doctor, ...cliente } = data;
-    console.log({ cliente });
+
     const values: AgendamentoType = {
       id: props.data.id,
+      horary: props.data.horary,
       client: cliente,
       available: false,
       doctor: doctor,
-      horary: props.data.horary,
-      payment,
-      value,
+      payment: payment,
+      value: value,
     };
 
+    console.log({ values });
     onConfirm(values);
     onClose();
     reset();
@@ -173,7 +174,7 @@ export const ModalAgendamento = (props: ModalAgendamentoProps) => {
         </ModalBody>
         <ModalFooter>
           <Button colorScheme="blue" mr={3} onClick={handleSubmit(onSubmit)}>
-            Cadastrar
+            Agendar
           </Button>
           <Button onClick={onClose}>Cancelar</Button>
         </ModalFooter>

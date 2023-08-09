@@ -24,6 +24,7 @@ export const Agendamentos = () => {
   };
 
   const handleAddAgendamento = (item: AgendamentoType) => {
+    console.log({ item });
     const indexAgendamento = agendamentos.findIndex(
       (itemAgenda) => itemAgenda.id === item.id
     );
@@ -34,7 +35,11 @@ export const Agendamentos = () => {
         ...newList[indexAgendamento],
         available: false,
         client: item.client,
+        payment: item.payment,
+        value: item.value,
+        doctor: item.doctor,
       };
+      console.log({ newList });
       setAgendamentos(newList);
     }
   };
@@ -55,8 +60,8 @@ export const Agendamentos = () => {
       maxH={"100%"}
       overflow={"hidden"}
     >
-      <Box>
-        <Text fontSize={24} color="#0093A0" fontWeight={"bold"}>
+      <Stack spacing={4}>
+        <Text fontSize={20} color="#0093A0" fontWeight={"bold"}>
           Médicos
         </Text>
         <Stack h="auto" minW={"40%"} gap={5}>
@@ -68,7 +73,7 @@ export const Agendamentos = () => {
 
           <Calendar />
         </Stack>
-      </Box>
+      </Stack>
       <Stack h="full" minW={"60%"} gap={5}>
         <Text fontSize={24} color="#0093A0" fontWeight={"bold"}>
           {today}
@@ -84,13 +89,24 @@ export const Agendamentos = () => {
               justifyContent={"space-between"}
               key={agendamento.id}
             >
-              <HStack align="center" justifyContent={"center"}>
+              <HStack gap={2} align="center" justifyContent={"center"}>
                 <Text fontSize={24} color="#0093A0" fontWeight={"bold"}>
                   {agendamento.horary}
                 </Text>
-                <Text fontSize={16} fontWeight={500}>
-                  {agendamento.client.name}
-                </Text>
+
+                {!agendamento.available && (
+                  <Stack>
+                    <Text fontSize={16} fontWeight={500}>
+                      Cliente: {agendamento.client.name}
+                    </Text>
+                    <Text fontSize={16} fontWeight={500}>
+                      Doutor: {agendamento.doctor}
+                    </Text>
+                    <Text fontSize={16} fontWeight={500}>
+                      R$ {agendamento.value}
+                    </Text>
+                  </Stack>
+                )}
               </HStack>
 
               {agendamento.available && (

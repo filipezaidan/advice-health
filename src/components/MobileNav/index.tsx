@@ -71,7 +71,7 @@ export const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="sm">Justina Clark</Text>
+                  <Text fontSize="sm">Adminstrador</Text>
                   <Text fontSize="xs" color="gray.600">
                     Admin
                   </Text>
