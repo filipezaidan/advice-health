@@ -18,9 +18,9 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AgendamentoSchema } from "../../../schemas/Agendamento";
-import { ClientType } from "../../../@types/Client";
 import { AgendamentoType } from "../../../@types/Agendamento";
 import { Doctors } from "../../../mocks/Doctor";
+import { PaymentMethod } from "../../../mocks/PaymentMethod";
 
 interface ModalAgendamentoProps {
   isOpen: boolean;
@@ -37,7 +37,7 @@ export const ModalAgendamento = (props: ModalAgendamentoProps) => {
   });
 
   const onSubmit = (data) => {
-    const { doctor, ...cliente } = data;
+    const { value, payment, doctor, ...cliente } = data;
     console.log({ cliente });
     const values: AgendamentoType = {
       id: props.data.id,
@@ -45,6 +45,8 @@ export const ModalAgendamento = (props: ModalAgendamentoProps) => {
       available: false,
       doctor: doctor,
       horary: props.data.horary,
+      payment,
+      value,
     };
 
     onConfirm(values);
@@ -120,12 +122,46 @@ export const ModalAgendamento = (props: ModalAgendamentoProps) => {
                   <FormControl isInvalid={fieldState.invalid}>
                     <FormLabel>Doutor</FormLabel>
                     <Select {...field}>
+                      <option value={""}></option>
                       {Doctors.map((doctor, key) => (
                         <option value={doctor.name} key={key}>
                           {doctor.name}
                         </option>
                       ))}
                     </Select>
+                    <FormErrorMessage>
+                      {fieldState?.error?.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                )}
+              />
+              <Controller
+                name="payment"
+                control={control}
+                render={({ field, fieldState }) => (
+                  <FormControl isInvalid={fieldState.invalid}>
+                    <FormLabel>Meio de Pagamento</FormLabel>
+                    <Select {...field}>
+                      <option value={""}></option>
+                      {PaymentMethod.map(({ value }, key) => (
+                        <option value={value} key={key}>
+                          {value}
+                        </option>
+                      ))}
+                    </Select>
+                    <FormErrorMessage>
+                      {fieldState?.error?.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                )}
+              />
+              <Controller
+                name="value"
+                control={control}
+                render={({ field, fieldState }) => (
+                  <FormControl isInvalid={fieldState.invalid}>
+                    <FormLabel>Valor da Consulta</FormLabel>
+                    <Input type="number" {...field} />
                     <FormErrorMessage>
                       {fieldState?.error?.message}
                     </FormErrorMessage>

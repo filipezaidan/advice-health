@@ -7,4 +7,6 @@ export type AgendamentoType = {
   doctor: DoctorType;
   horary: string;
   available: boolean;
+  value: string;
+  payment: string;
 };

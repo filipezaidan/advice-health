@@ -5,4 +5,6 @@ export const AgendamentoSchema = z.object({
   cpf: z.string().min(11, { message: "CPF deve ter 11 caracteres" }),
   birthdate: z.string(),
   address: z.string(),
+  payment: z.string(),
+  value: z.string(),
 });

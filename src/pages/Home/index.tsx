@@ -25,7 +25,9 @@ export const Home = () => {
       <Stack h="full" minW={"70%"} gap={5}>
         <SearchInput onChange={(e) => setSearch(e.target.value)} />
 
-        <Text fontSize={"2xl"}>Dashboard</Text>
+        <Text fontSize={"2xl"} color="#0093A0" fontWeight={"bold"}>
+          Dashboard
+        </Text>
 
         <Statistics />
 

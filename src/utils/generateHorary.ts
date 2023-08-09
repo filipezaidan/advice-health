@@ -15,6 +15,8 @@ const generateHorary = () => {
           address: "",
         },
         doctor: "",
+        payment: "",
+        value: "",
         horary: `${hora.toString().padStart(2, "0")}:${minuto
           .toString()
           .padStart(2, "0")}`,
